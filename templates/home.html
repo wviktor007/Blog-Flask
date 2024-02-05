@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+ <main>
+        <h2>Главная страница</h2>
+        {% if current_user.is_authenticated %}
+            {% for post in posts %}
+                <article>
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content }}</p>
+                    <p>Автор: {{ post.author.username }}</p>
+                    <p>Email: {{ post.author.email }}</p>
+                </article>
+            {% endfor %}
+        {% else %}
+        <h2>Войдите в свой аккаунт или зарегистрируйтесь.</h2>
+        {% endif %}
+
+    </main>
+{% endblock %}
