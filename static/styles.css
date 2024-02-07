@@ -129,3 +129,11 @@ footer {
     padding: 10px;
     text-align: center;
 }
+
+.flash.successfully {
+    padding: 10px;
+    color: #aeffc5;
+}
+.flash.error {
+    padding: 10px;
+    color: #ff9898;}
