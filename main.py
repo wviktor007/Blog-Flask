@@ -83,6 +83,12 @@ def logout():
 
 @app.route('/add_post', methods=['GET', 'POST'])
 def add_post():
+    '''
+        Функция add_post является функцией-обработчиком для маршрута `/add_post`.
+        Когда вы переходите на данную страницу, то увидите шаблон из `add_post.html`
+        Но когда вы попытаетесь заполнить форму какими-то данными и отправить запрос,
+        то вы отправите POST запрос и создадите новый пост в БД
+    '''
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
