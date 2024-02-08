@@ -4,16 +4,9 @@
 
 {% block register %}
     <h1>Регистрация</h1>
-<<<<<<< HEAD
 {% for cat, msg in get_flashed_messages(True) %}
 <div class="flash {{ cat }}" ><p>{{ msg }}</p></div>
 {% endfor%}
-=======
-    {% for cat, msg in get_flashed_messages(True) %}
-        <div class="flash {{cat}}"><p>{{ msg }}</p></div>
-    {% endfor %}
-
->>>>>>> 7fefd8f801f874750c6175853e7671471178b9b5
     <form method="post" action="{{ url_for('register') }}">
                     <label for="username">Имя:</label>
             <input type="text" id="username" name="username" required>
