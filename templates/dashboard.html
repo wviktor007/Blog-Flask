@@ -3,15 +3,20 @@
 {% block title %}Личный кабинет{% endblock %}
 
 {% block content %}
-    <body>
-        <header>
-            <main>
-                <h2>Личные данные</h2>
-                <p>Имя: {{ user.username }}</p>
-                <p>Email: {{ user.email }}</p>
-            </main>
-        </header>
-    </body>
+    <div>
+        <h2>Личные данные</h2>
+        <form method="POST">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{ user.username }}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ user.email }}" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>
+    </div>
 {% endblock %}
 
 

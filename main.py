@@ -1,3 +1,4 @@
+import re
 from flask import render_template, request, url_for, flash, redirect
 
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
@@ -35,26 +36,41 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    pattern =r"(^[a-zA-Z]+$)"
     if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
-        hashed_password = generate_password_hash(password)
-        existing_user = User.query.filter_by(username=username).first()# Проверка на существующего пользователя
-        if existing_user:
-            flash('Пользователь с таким именем уже существует', 'error')
-            return redirect(url_for('register'))
-        new_user = User(username=username, email=email, password=hashed_password)
-        db.session.add(new_user)
-        db.session.commit()
-        flash('Ваша учетная запись успешно создана', 'successfully')
-        return redirect(url_for('home'))
+        if re.search(pattern, request.form['username']):
+            username = request.form['username']
+            email = request.form['email']
+            password = request.form['password']
+            existing_user = User.query.filter_by(username=username).first()
+            existing_email = User.query.filter_by(email=email).first()
+            if existing_user:
+                flash('Пользователь с таким именем уже существует', category='error')
+                return redirect(url_for('register'))
+            if existing_email:
+                flash('Пользователь с таким email уже существует', category='error')
+                return redirect(url_for('register'))
+            hashed_password = generate_password_hash(password)
+            new_user = User(username=username, email=email, password=hashed_password)
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect(url_for('login'))
+        else:
+            flash('Имя должно состоять только из латинских букв', 'error')
     return render_template('register.html')
 
 
-@app.route('/dashboard')
+@app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        current_user.username = username
+        current_user.email = email
+        db.session.commit()
+        flash('Ваши личные данные успешно обновлены', 'success')
+        return redirect(url_for('dashboard'))
     return render_template('dashboard.html', user=current_user)
 
 
@@ -67,6 +83,12 @@ def logout():
 
 @app.route('/add_post', methods=['GET', 'POST'])
 def add_post():
+    '''
+        Функция add_post является функцией-обработчиком для маршрута `/add_post`.
+        Когда вы переходите на данную страницу, то увидите шаблон из `add_post.html`
+        Но когда вы попытаетесь заполнить форму какими-то данными и отправить запрос,
+        то вы отправите POST запрос и создадите новый пост в БД
+    '''
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']

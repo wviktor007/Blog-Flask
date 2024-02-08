@@ -3,7 +3,11 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.11 (blog_Flask)" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (blog_Flask)" project-jdk-type="Python SDK" />
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (Blog-Flask)" project-jdk-type="Python SDK" />
+>>>>>>> 7fefd8f801f874750c6175853e7671471178b9b5
   <component name="PyCharmProfessionalAdvertiser">
     <option name="shown" value="true" />
   </component>
