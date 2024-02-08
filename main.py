@@ -60,9 +60,17 @@ def register():
     return render_template('register.html')
 
 
-@app.route('/dashboard')
+@app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        current_user.username = username
+        current_user.email = email
+        db.session.commit()
+        flash('Ваши личные данные успешно обновлены', 'success')
+        return redirect(url_for('dashboard'))
     return render_template('dashboard.html', user=current_user)
 
 
