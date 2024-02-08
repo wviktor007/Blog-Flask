@@ -15,6 +15,9 @@ def load_user(user_id):
 
 
 @app.route('/')
+@app.route('/index')
+@app.route('/main')
+@app.route('/home')
 def home():
     posts = Post.query.all()
     return render_template('home.html', posts=posts)
