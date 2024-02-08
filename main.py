@@ -40,11 +40,15 @@ def register():
         email = request.form['email']
         password = request.form['password']
         hashed_password = generate_password_hash(password)
+        existing_user = User.query.filter_by(username=username).first()# Проверка на существующего пользователя
+        if existing_user:
+            flash('Пользователь с таким именем уже существует', 'error')
+            return redirect(url_for('register'))
         new_user = User(username=username, email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
         flash('Ваша учетная запись успешно создана', 'successfully')
-        return redirect(url_for('login'))
+        return redirect(url_for('home'))
     return render_template('register.html')
 
 
