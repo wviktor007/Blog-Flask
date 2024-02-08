@@ -6,6 +6,7 @@
     <title>{% block title %}Flask Blog{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+
 <body>
     <header class="header">
         <div class="container">
@@ -24,6 +25,8 @@
                 </nav>
             </div>
         </div>
+        {% block body %}
+        {% endblock %}
     </header>
     <main>
         {% if current_user.is_authenticated %}
