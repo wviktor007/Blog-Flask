@@ -102,6 +102,10 @@ def add_post():
         return redirect(url_for('home'))
     return render_template('add_post.html')
 
+@app.route('/denis')
+def denis():
+    return render_template('denis.html')
+
 
 if __name__ == '__main__':
     with app.app_context():
