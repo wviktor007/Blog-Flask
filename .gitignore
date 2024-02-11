@@ -2,6 +2,8 @@ __pycache__
 venv
 .idea
 instance
+
+instance
 main.py
 templates
 static

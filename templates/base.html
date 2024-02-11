@@ -6,7 +6,6 @@
     <title>{% block title %}Flask Blog{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-
 <body>
     <header class="header">
         <div class="container">
@@ -17,6 +16,7 @@
                         <a class="nav__link active" href="{{ url_for('home') }}">Главная страница</a>
                         <a class="nav__link" href="{{ url_for('dashboard') }}">Личный кабинет</a>
                         <a class="nav__link" href="{{ url_for('add_post') }}">Новая статья</a>
+                        <a class="nav__link" href="{{ url_for('about') }}">О нас</a>
                         <a class="nav__link" href="{{ url_for('logout') }}">Выйти</a>
                     {% else %}
                         <a class="nav__link" href="{{ url_for('login') }}">Авторизация</a>
@@ -25,18 +25,16 @@
                 </nav>
             </div>
         </div>
-        </header>
+    </header>
     <main>
         {% if current_user.is_authenticated %}
-            {% block body %}
-            {% endblock %}
             {% block content %}
             {% endblock %}
         {% else %}
             {% block login %}
             {% endblock %}
-        {% block register %}
-        {% endblock %}
+            {% block register %}
+            {% endblock %}
         {% endif %}
     </main>
 </body>
