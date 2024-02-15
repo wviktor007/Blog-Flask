@@ -2,21 +2,76 @@
 
 {% block title %}Главная страница{% endblock %}
 
-{% block content %}
- <main>
-        <h2>Главная страница</h2>
-        {% if current_user.is_authenticated %}
-            {% for post in posts %}
-                <article>
-                    <h3>{{ post.title }}</h3>
-                    <p>{{ post.content }}</p>
-                    <p>Автор: {{ post.author.username }}</p>
-                    <p>Email: {{ post.author.email }}</p>
-                </article>
-            {% endfor %}
-        {% else %}
-        <h2>Войдите в свой аккаунт или зарегистрируйтесь.</h2>
-        {% endif %}
+{% block body %}
+<h1>Главная страница</h1>
+<div>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid deleniti dignissimos dolorum ea ex harum
+        ipsum labore natus, officia placeat quam reiciendis rerum sed veritatis voluptates! Et necessitatibus nihil
+        provident.
+    </div>
+    <div>Dolores, est, quis. Aperiam blanditiis delectus, dolor doloremque dolores error fugiat fugit laborum minima
+        molestiae nostrum odio porro quaerat quia quis quisquam quod quos rem repudiandae tempora ullam, veniam
+        voluptatum.
+    </div>
+    <div>Aliquid animi dolorem fugiat ipsa ipsum nobis placeat quia sequi soluta veritatis. Architecto dicta, ducimus
+        eaque earum eius et eum inventore maxime modi molestiae, molestias nobis, quam sequi voluptas voluptate!
+    </div>
+    <div>Alias, aliquid assumenda blanditiis ea facilis nobis nulla quod recusandae rerum sapiente! Ab atque autem
+        consectetur consequatur cupiditate, ea esse, ex illum odio perspiciatis quas quia rem, sunt veritatis voluptate.
+    </div>
+    <div>Accusamus aperiam aut blanditiis cum debitis dolore dolorem doloremque doloribus eos, esse expedita facere hic
+        impedit inventore ipsa libero mollitia nemo nihil quam quibusdam quo reiciendis sed, ullam vero voluptatem!
+    </div>
+    <div>Aliquam aperiam at commodi consectetur ducimus excepturi fuga fugiat ipsa necessitatibus placeat quasi, quidem
+        recusandae rem repellat totam velit voluptas. A ab commodi esse modi omnis quidem quis sapiente, voluptas!
+    </div>
+    <div>Adipisci, animi aut commodi ea facilis ipsa reiciendis saepe vero? Adipisci est neque rem suscipit voluptatum?
+        Aspernatur beatae consequatur exercitationem fugiat fugit ipsa, nisi provident quibusdam quisquam totam ullam,
+        vero.
+    </div>
+    <div>Blanditiis cum dolores eaque eveniet exercitationem, fuga iusto neque nesciunt numquam optio quaerat quasi
+        ratione recusandae sint sunt tenetur voluptate? Aliquid aut beatae cupiditate delectus doloremque incidunt
+        itaque laudantium magni.
+    </div>
+    <div>Cupiditate eligendi fugiat fugit magni tempora. Cum eius ex excepturi explicabo natus numquam porro! Accusamus
+        atque consequuntur eaque facere laboriosam necessitatibus nisi nostrum, officiis qui recusandae sint sit, sunt
+        vel.
+    </div>
+    <div>Aspernatur dolorem ducimus, eos est excepturi exercitationem id in ipsa ipsum labore magnam necessitatibus nemo
+        nostrum, odio omnis pariatur, quis recusandae repellendus similique sint. Earum modi nihil quia quidem repellat.
+    </div>
+    <br>
+    <br>
+    <div>
+        <h2>Какая-то картинка</h2>
+        <br>
+        <br>
+        <div>
+            <img src="https://3dnews.ru/assets/external/illustrations/2023/06/03/1087864/sd2-15.jpg" alt="упссс.."
+                 height="200px" width="200px">
+        </div>
+    </div>
+</div>
+{% endblock %}
 
-    </main>
+
+{% block content %}
+
+<main>
+    <h2>Главная страница</h2>
+    {% if current_user.is_authenticated %}
+    {% for post in posts %}
+    <article>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+        <p>Автор: {{ post.author.username }}</p>
+        <p>Email: {{ post.author.email }}</p>
+    </article>
+    {% endfor %}
+    {% else %}
+    <h2>Войдите в свой аккаунт или зарегистрируйтесь.</h2>
+    {% endif %}
+
+</main>
+
 {% endblock %}

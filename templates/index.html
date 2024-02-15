@@ -1,0 +1,62 @@
+<! issue 9 Создать новую страницу и добавить данные с fakestoreapi,
+а именно отображение всех категорий >
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .category-list li {
+            margin: 0 10px;
+        }
+        .category-link {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .category-link:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Online Store Categories</h1>
+        <ul class="category-list">
+            <li><a href="#" class="category-link">Electronics</a></li>
+            <li><a href="#" class="category-link">Jewelry</a></li>
+            <li><a href="#" class="category-link">Men's Clothing</a></li>
+            <li><a href="#" class="category-link">Women's Clothing</a></li>
+        </ul>
+    </div>
+</body>
+</html>
